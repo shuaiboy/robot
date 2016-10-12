@@ -1,0 +1,124 @@
+
+ul{
+	list-style-type: none;
+}
+.top{
+  width:100%;
+  overflow: hidden;
+}
+.top-left{
+	width: 20%;
+	padding-top: 1.5%;
+	float: left;
+
+}
+.top-left img{
+	margin-bottom: -170px;
+	width: 80%;
+}
+.top-right{
+	width: 100%;
+	float: left;
+		
+}
+.ri-top{
+	height: 165px;
+}
+.ri-top,.ri-bottom{
+	width: 100%;
+	/*padding-top: 1%;*/
+	margin-left: 3.5%;
+}
+.ri-top .list-unstyled li{
+  width: 16%;
+  float: left; 
+}
+.ri-top .list-unstyled li img{
+ 	width: 94%;
+ 	width: 70%;
+  cursor: pointer;
+}
+.middle1{
+  width:94%;
+  overflow: hidden;
+}
+
+.suits {
+    width: 100%;
+    height: 110px;
+    float: left;
+    overflow-y: hidden;
+    padding-bottom: 1%;
+    margin-bottom: 2%;
+    margin-left: 0.7%;
+}
+.suits li{
+   	float: left;
+    width: 11%;
+    text-align: center;
+}
+.suits li img{
+  width:80%;
+  height:94px;
+}
+.suits-list{
+	width: 100%;
+	height:113px;
+}
+.suits-list1{
+	height: 145px;
+    width: 1072px;
+  overflow-y: auto;
+}
+.blackboder{
+	border: 2px solid red;
+}
+.form{
+	margin-left: 4%;
+}
+.form p,.form div{
+	font-size: 16px;	
+}
+.form input{
+	width: 22%;
+}
+.detail-type{
+	/*height: 300px;*/
+	overflow: auto;
+}
+.detail-type table{
+	/*text-align: center ;*/
+}
+.detail-type table th{
+	background:#00ADEF;
+	color:#fff;
+}
+.nav-item-title2{
+    font-size: 18px;
+    font-weight: bold;
+    padding: 5px;
+}
+.nav-item-title2 img{
+    width: 10px;
+    height: 10px;
+}
+.nav-item-title2 img:hover{
+    cursor: pointer;
+}
+.levelA{
+    margin-left: 40px;
+    width:30%;
+    
+}
+.levelA span{
+    display: inline-block;
+    border:1px solid red;
+}
+#socket{
+	width: 61%;
+	float: left;
+}
+#encry{
+	width: 35%;
+	float: left;
+}
