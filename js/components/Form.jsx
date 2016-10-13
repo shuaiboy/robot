@@ -1,27 +1,35 @@
 import React, {Component} from 'react' ;
 import assign from 'object-assign' ;
 import Button from './Button.jsx' ;
+import {actions} from '../redux/actions' ;
 
 export default class Form extends Component{
 	constructor(props){
 		super(props) ;
-		this.editFormData = {
+		this.updateFormData = {
 			'robot_sn': '',
 			'controller_sn': '',
 			'robot_type': '',
 			'site': ''
 		} ;
-		this.state = assign({}, this.editFormData, this.props.store.getState().editFormData) ;
 
+		this.state = assign({}, this.updateFormData, this.props.store.getState().updateFormData) ;
 		this.listenerStore = this.listenerStore.bind(this) ;
+		this.handleClick = this.handleClick.bind(this) ;
 	}
 
-	handleChange(){
-		console.log('handleChange') ;
+	handleChange(e){
+		let name = e.target.getAttribute('name') ;
+		let value = e.target.value ;
+		this.props.store.dispatch(actions.updateTodo(assign(this.state, {[name]: value}))) ;
+	}
+
+	handleClick(){
+		this.props.store.dispatch(actions.saveTodo(this.state)) ;
 	}
 
 	listenerStore(){
-		this.setState(assign({}, this.editFormData, this.props.store.getState().editFormData)) ;
+		this.setState(assign({}, this.updateFormData, this.props.store.getState().updateFormData)) ;
 	}
 
 	componentDidMount(){
@@ -41,7 +49,7 @@ export default class Form extends Component{
 				  			<p>
 				  				<b>Robot SN:</b>
 				  				<input type="text" name="robot_sn" onChange={this.handleChange.bind(this)} value={this.state.robot_sn}/>
-				  				</p>
+				  			</p>
 				  			<p>
 				  				<b>Controller SN:</b>
 				  				<input type="text" name="controller_sn" onChange={this.handleChange.bind(this)} value={this.state.controller_sn}/>

@@ -1,5 +1,6 @@
 import React, {Component} from 'react' ;
 import Button from './Button.jsx' ;
+import {actions} from '../redux/actions' ;
 
 class Table extends Component{
 	constructor(props){
@@ -7,14 +8,26 @@ class Table extends Component{
 		this.state = this.props.store.getState() ;
 
 		this.listenerStore = this.listenerStore.bind(this) ;
+		this.handleClick = this.handleClick.bind(this) ;
+		this.handleDelClick = this.handleDelClick.bind(this) ;
 	}
 
-	handleClick(){
-		console.log('handleClick') ;
+	handleClick(e){
+		let id = e.target.parentNode.parentNode.getAttribute('id') ;
+		let obj = {} ;
+		this.state.dataList.forEach((item) =>{
+			if(id == item.id){
+				obj = item ;
+			}
+		}) ;
+
+
+		this.props.store.dispatch(actions.updateTodo(obj)) ;
 	}
 
-	handleDelClick(){
-		console.log('handleDelClick') ;
+	handleDelClick(e){
+		let id = e.target.parentNode.parentNode.getAttribute('id') ;
+		this.props.store.dispatch(actions.deleteTodo(id)) ;
 	}
 
 	listenerStore(){
@@ -33,7 +46,7 @@ class Table extends Component{
 		var trHtml = [] ;
 		trHtml = this.state.dataList.map((item, i) => {
 			return (
-				<tr key={'item=' + i}>
+				<tr key={'item=' + i} id={item.id}>
 					<td>{item.robot_sn}</td>
 					<td>{item.robot_type}</td>
 					<td>{item.controller_sn}</td>
